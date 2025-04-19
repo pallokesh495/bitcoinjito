@@ -1,0 +1,138 @@
+/* components/Transactions.module.css */
+.transactionsPanel {
+    flex: 1;
+    background-color: #0a0a14;
+    border-radius: 12px;
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+  
+  .transactionsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .filterDropdown {
+    position: relative;
+    width: 240px;
+  }
+  
+  .filterSelect {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #121220;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+  }
+  
+  .dropdownIcon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  .refreshButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background-color: #f7931a;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .refreshButton:hover {
+    background-color: #e68a18;
+  }
+  
+  .tableContainer {
+    overflow-x: auto;
+  }
+  
+  .transactionsTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transactionsTable th {
+    text-align: left;
+    padding: 16px;
+    color: #8a8f98;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: 1px solid #1a1a2e;
+  }
+  
+  .transactionRow {
+    transition: background-color 0.2s;
+  }
+  
+  .transactionRow:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+  
+  .transactionRow td {
+    padding: 16px;
+    border-bottom: 1px solid #1a1a2e;
+  }
+  
+  .amountType {
+    color: #8a8f98;
+    font-size: 14px;
+  }
+  
+  .statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .statusDot {
+    font-size: 18px;
+    line-height: 0;
+  }
+  
+  .approved {
+    background-color: rgba(0, 200, 83, 0.15);
+    color: #00c853;
+  }
+  
+  .processing {
+    background-color: rgba(247, 147, 26, 0.15);
+    color: #f7931a;
+  }
+  
+  @media (max-width: 768px) {
+    .transactionsHeader {
+      flex-direction: column;
+      gap: 16px;
+      align-items: stretch;
+    }
+  
+    .filterDropdown {
+      width: 100%;
+    }
+  
+    .refreshButton {
+      width: 100%;
+      justify-content: center;
+    }
+  }

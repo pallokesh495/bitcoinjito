@@ -1,0 +1,103 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    display: none;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 64px; /* Height of the header */
+    left: 0;
+    height: calc(100vh - 64px);
+    background-color: #0a0a0a;
+    transition: width 0.3s ease;
+    
+    z-index: 50;
+  }
+  
+  .open {
+    width: 250px;
+  }
+  
+  .closed {
+    width: 70px;
+  }
+  
+  .nav {
+    padding: 16px 0;
+    background: black;
+  }
+  
+  .menuList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .menuItem {
+    padding: 0 12px;
+  }
+  
+  .menuLink {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background-color: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .menuLink:hover {
+    background-color: #252525;
+  }
+  
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    font-size: 18px;
+  }
+  
+  .text {
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  .highlight {
+    color: #00ff7f; /* Green color for VIP Club */
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    .overlay {
+      display: block;
+    }
+  
+    .sidebar {
+      transform: translateX(-100%);
+      width: 250px;
+    }
+  
+    .open {
+      transform: translateX(0);
+    }
+  
+    .closed {
+      transform: translateX(-100%);
+    }
+  }
+  

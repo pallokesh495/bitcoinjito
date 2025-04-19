@@ -1,0 +1,108 @@
+.tableContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #0a0a14;
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .liveTable {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+  }
+  
+  .liveTable thead th {
+    padding: 16px;
+    text-align: left;
+    color: #8a8f98;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: 1px solid #1a1a2e;
+  }
+  
+  .tableRow {
+    transition: background-color 0.3s ease;
+  }
+  
+  .tableRow:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .tableRow td {
+    padding: 16px;
+    border-bottom: 1px solid #1a1a2e;
+  }
+  
+  .tableRow:last-child td {
+    border-bottom: none;
+  }
+  
+  .gameCell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .gameIcon {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gameName {
+    font-weight: 500;
+  }
+  
+  .profitCell {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #00c853;
+  }
+  
+  .cryptoIcon {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .profitAmount {
+    font-weight: 500;
+  }
+  
+  /* Animation for new data */
+  @keyframes highlight {
+    0% {
+      background-color: rgba(0, 200, 83, 0.2);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+  
+  .tableRow.new {
+    animation: highlight 1s ease-out;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .tableContainer {
+      padding: 10px;
+      border-radius: 8px;
+    }
+  
+    .liveTable thead th,
+    .tableRow td {
+      padding: 12px 8px;
+      font-size: 12px;
+    }
+  
+    .gameIcon {
+      font-size: 14px;
+    }
+  }
+  

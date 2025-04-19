@@ -1,0 +1,316 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContainer {
+    background-color: #2a2e33;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    color: white;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .clubHeader {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  
+  .hostBadge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #4ade80;
+    color: black;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .clubLogo {
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    border-radius: 8px;
+    margin-right: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sunIcon {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #ffd700 10%, #ff8c00 70%);
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .sunIcon::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 140, 0, 0) 70%);
+    border-radius: 50%;
+  }
+  
+  .clubInfo {
+    flex: 1;
+  }
+  
+  .clubName {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+  }
+  
+  .clubId {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0 0 8px 0;
+  }
+  
+  .clubDescription {
+    font-size: 14px;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+  }
+  
+  .editButton {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .clubContent {
+    background-color: #222629;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .rakebackSection {
+    width: 100%;
+  }
+  
+  .rakebackHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .rakebackTitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .eyeIcon {
+    margin-right: 8px;
+    color: #aaa;
+  }
+  
+  .rakebackPercentage {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4ade80;
+  }
+  
+  .availableRakeback {
+    background-color: #2a2e33;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .rakebackInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .rakebackLabel {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+  
+  .rakebackAmount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4ade80;
+  }
+  
+  .claimButton {
+    background-color: #4ade80;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  
+  .timeRemaining {
+    font-weight: normal;
+    margin-left: 4px;
+  }
+  
+  .progressContainer {
+    margin-bottom: 20px;
+  }
+  
+  .progressMarkers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 16.66%;
+  }
+  
+  .markerLabel {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .progressBar {
+    height: 8px;
+    background-color: #3a3f44;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .progressFill {
+    height: 100%;
+    background-color: #4ade80;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+  
+  .percentageScale {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .percentageValue {
+    font-size: 12px;
+    color: #aaa;
+    width: 14.28%;
+    text-align: center;
+  }
+  
+  .statsContainer {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .statBox {
+    flex: 1;
+    background-color: #2a2e33;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .statTitle {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0 0 8px 0;
+  }
+  
+  .statValue {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+  }
+  
+  .greenText {
+    color: #4ade80;
+  }
+  
+  .statSubtext {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+  }
+  
+  .inviteButton {
+    background-color: #4ade80;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  
+  .rightIcon {
+    margin-left: 8px;
+  }
+  
+  .inviteText {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+  }
+  

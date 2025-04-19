@@ -1,0 +1,114 @@
+.header {
+    background-color: #000;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(44, 47, 54);
+    position: fixed
+    
+   
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+   
+    margin: 0 auto;
+  }
+  
+  .leftSection {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .menuButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+  
+  .logoLink {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .bitcoinLogo {
+    color: #f7931a; /* Bitcoin orange color */
+  }
+  
+  .jitoText {
+    color: #f7931a; /* Bitcoin orange color */
+  }
+  
+  .rightSection {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .signInButton {
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .signInButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .signUpButton {
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: none;
+    background-color: #f7931a; /* Bitcoin orange color */
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .signUpButton:hover {
+    background-color: #e68a18;
+  }
+  
+  .iconButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .iconButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
