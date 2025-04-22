@@ -1,0 +1,36 @@
+.body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+    margin-top: 4rem; /* Space for header */
+    box-sizing: border-box;
+    flex: 1; /* Ensures page takes remaining height */
+    
+  }
+  .sidebarOpen {
+    width: 10%;
+  }
+  .sidebarClosed {
+    width: 1%;
+  }
+  
+  .ContentSidebarOpen {
+    /* flex: 1; content takes available width  */
+    width: 84%;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Smooth transition for content adjustment */
+    padding: 0 2rem;
+    
+  }
+  .ContentSidebarClosed{
+    padding: 0 2rem;
+    width: 83%;
+  }

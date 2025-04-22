@@ -1,0 +1,270 @@
+.container {
+    width: 100%;
+    padding: 16px;
+    background-color: #121212;
+    margin-top: 20rem;
+    margin-bottom: 20rem;
+  }
+  
+  .categoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .categoryCard {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .loaded {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .categoryCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .large {
+    grid-row: span 2;
+    height: auto;
+    min-height: 300px;
+  }
+  
+  .small {
+    height: 150px;
+  }
+  
+  /* Card background colors */
+  .categoryCard:nth-child(1) {
+    padding: 1rem 0.8rem;
+    background-color: rgb(50, 55, 56);
+    background-image: linear-gradient(to right, rgba(115, 198, 196, 0.1), rgba(115, 198, 196, 0.4));
+    transition-delay: 0ms;
+  }
+  
+  .categoryCard:nth-child(2) {
+    padding:1rem 0.8rem;
+    background-color: rgb(50, 55, 56);
+    background-image: linear-gradient(to right, rgba(88, 46, 89, 0.3), rgba(88, 46, 89, 0.8));
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+    transition-delay: 100ms;
+  }
+  
+  .categoryCard:nth-child(3) {
+    padding: 0.25rem 0.3rem;
+    background-color: rgb(50, 55, 56);
+    background-image: linear-gradient(to right, rgba(85, 148, 146, 0.8), rgba(66, 83, 48, 0.3) 75%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+    transition-delay: 200ms;
+  }
+  
+  .categoryCard:nth-child(4) {
+    padding: 0.25rem 0.3rem;
+    background-color: rgb(50, 55, 56);
+    background-image: linear-gradient(to right, rgba(85, 148, 146, 0.8), rgba(66, 83, 48, 0.3) 75%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+
+    transition-delay: 300ms;
+  }
+  
+  .categoryCard:nth-child(5) {
+    padding: 0.15rem 0.2rem;
+    background-color: rgb(50, 55, 56);
+    background-image: linear-gradient(to right, rgb(43, 100, 98), rgb(45, 79, 49) 75%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+    transition-delay: 400ms;
+  }
+  
+  .categoryCard:nth-child(6) {
+    
+    padding: 0.25rem 0.3rem;
+    background-color: rgb(50, 55, 56);
+    background-image: linear-gradient(to right, rgb(63, 124, 137), rgb(71, 56, 111) 75%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+    transition-delay: 500ms;
+  }
+  
+  .cardContent {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .titleRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .categoryIcon {
+    width: 24px;
+    height: 24px;
+    color: white;
+  }
+  
+  .categoryTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  
+  .categoryDescription {
+    font-size: 16px;
+    margin: 0;
+    max-width: 80%;
+    line-height: 1.4;
+  }
+  
+  .imageContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  
+  /* Custom images for each category */
+  .casinoImage {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 220px;
+    height: 220px;
+    background-image: url("../../public/assets/images/casino-bjb.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(-15deg);
+  }
+  
+  .sportsImage {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sportsImage::before {
+    content: "";
+    width: 80px;
+    height: 80px;
+    background-image: url("../../public/assets/images/s2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+  }
+  
+  .sportsImage::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+   background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .spribeImage {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../public/assets/images/bccrash.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .liveImage {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../public/assets/images/live-card.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .slotsImage {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../public/assets/images/bcslots.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .ezugiImage {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../public/assets/images/ezugi-live.png");
+        background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .categoriesGrid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+  
+    .large {
+      grid-column: span 2;
+    }
+  
+    .small {
+      grid-column: span 1;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .categoriesGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .large,
+    .small {
+      grid-column: span 1;
+    }
+  
+    .small {
+      height: 120px;
+    }
+  
+    .categoryTitle {
+      font-size: 20px;
+    }
+  
+    .categoryDescription {
+      font-size: 14px;
+    }
+  }
+  

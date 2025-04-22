@@ -8,14 +8,12 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import SignInModal from "../signInModal/SignInModal";
 import SignUpModal from "../signUpModal/SignUpModal";
 
-const GuestHeader = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+const GuestHeader = ({toggleSidebar}) => {
+  
   const [isSignInOpen, setIsSignInOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+ 
 
   const handleOpenSignIn = () => {
     setIsSignInOpen(true);
@@ -75,7 +73,7 @@ const GuestHeader = () => {
           </div>
         </div>
       </header>
-      <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      
       <SignInModal
         isOpen={isSignInOpen}
         onClose={handleClose}

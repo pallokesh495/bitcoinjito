@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef } from "react"
 import styles from "./HomeScroller.module.css"
+// import CandyStars from '../../public/assets/images/cs.png'
 
 export default function HomeScroller() {
   const scrollerRef = useRef(null)
@@ -22,7 +23,7 @@ export default function HomeScroller() {
     // Auto scroll animation
     let animationId
     let scrollPosition = 0
-    const scrollSpeed = 1 // Medium speed - adjust as needed
+    const scrollSpeed = 0.5 // Medium speed - adjust as needed
 
     const scroll = () => {
       scrollPosition += scrollSpeed
@@ -88,11 +89,11 @@ export default function HomeScroller() {
           <div key={game.id} className={styles.gameCard}>
             <div className={styles.imageContainer}>
               <img
-                src={`/placeholder.svg?height=150&width=120&text=${encodeURIComponent(game.title)}`}
+                src={"/assets/images/cs.png"}
                 alt={game.title}
                 className={styles.gameImage}
               />
-              <div className={styles.gameTitle}>{game.title}</div>
+              {/* <div className={styles.gameTitle}>{game.title}</div> */}
             </div>
             <div className={styles.gameInfo}>
               <div className={styles.hiddenBadge}>

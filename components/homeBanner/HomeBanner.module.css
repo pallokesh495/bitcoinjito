@@ -1,163 +1,177 @@
 .bannerContainer {
-    width: 100%;
-    background-color: #121212;
-    background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bcbg-0bmgP2nh0cgeU02cMsQNTnwxU7XL1Y.svg"),
-      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 20px, #222 20px, #222 40px);
-    background-position: right top, center, center;
-    background-repeat: no-repeat, no-repeat, repeat;
-    background-size: contain, cover, auto;
-    /* position: relative; */
-    overflow: hidden;
-    border-radius: 8px;
-    margin: 20px auto;
-    max-width: 1400px;
-    margin-top: 12rem;
-  }
-  
-  .bannerContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .textContent {
-    max-width: 500px;
-    color: white;
-    z-index: 2;
-  }
-  
+  width: 100%;
+  background-color: #121212;
+  background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bcbg-0bmgP2nh0cgeU02cMsQNTnwxU7XL1Y.svg"),
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 20px, #222 20px, #222 40px);
+  background-position: right top, center, center;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: contain, cover, auto;
+  /* position: relative; */
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 20px auto;
+
+  margin-top: 20rem;
+  margin-bottom: 20rem;
+}
+
+.bannerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.textContent {
+  max-width: 500px;
+  color: white;
+  z-index: 2;
+  margin-left: 10rem;
+}
+
+.mainHeading {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin: 0 3.5rem 2.5rem ;
+  line-height: 1.1;
+}
+
+.offerContent {
+  margin-bottom: 30px;
+  background: rgba(0, 0, 0, 0.2);
+
+  margin-top: 1rem;
+   border-radius: 1rem;
+  padding: 0.75rem 3.75rem;
+  backdrop-filter: blur(4px);
+  text-align: left;
+}
+
+.signUpText {
+  font-size: 1.125rem;
+  margin: 0 0 5px 0;
+}
+
+.amountText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+}
+
+.highlightAmount {
+  color: #f7931a;
+}
+
+.categoryText {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.signUpButton {
+  height: 2.5rem;
+  margin-top: auto;
+  width: 15rem;
+  justify-content: center;
+  align-items: center;
+  background: rgb(240, 156, 6);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: black !important;
+  transition: background-color 0.3s;
+  margin-left: 3rem;
+}
+
+.signUpButton:hover {
+  background-color: #e68a18;
+}
+
+.imageContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.playersImage {
+  max-height: 250px;
+  margin-right:5rem;
+  object-fit: contain;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
   .mainHeading {
-    font-size: 48px;
-    font-weight: 800;
-    margin: 0 0 20px 0;
-    line-height: 1.1;
+    font-size: 40px;
   }
-  
-  .offerContent {
-    margin-bottom: 30px;
-  }
-  
-  .signUpText {
-    font-size: 24px;
-    margin: 0 0 5px 0;
-  }
-  
+
   .amountText {
-    font-size: 36px;
-    font-weight: 700;
-    margin: 0 0 5px 0;
+    font-size: 32px;
   }
-  
-  .highlightAmount {
-    color: #f7931a;
-  }
-  
-  .categoryText {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .signUpButton {
-    background-color: #f7931a;
-    color: #000;
-    border: none;
-    border-radius: 8px;
-    padding: 15px 60px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .signUpButton:hover {
-    background-color: #e68a18;
-  }
-  
-  .imageContainer {
-    position: relative;
-    z-index: 1;
-  }
-  
+
   .playersImage {
-    max-height: 300px;
-    object-fit: contain;
+    max-height: 250px;
   }
-  
-  /* Responsive styles */
-  @media (max-width: 1024px) {
-    .mainHeading {
-      font-size: 40px;
-    }
-  
-    .amountText {
-      font-size: 32px;
-    }
-  
-    .playersImage {
-      max-height: 250px;
-    }
+}
+
+@media (max-width: 768px) {
+  .bannerContent {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
   }
-  
-  @media (max-width: 768px) {
-    .bannerContent {
-      flex-direction: column;
-      text-align: center;
-      padding: 30px 20px;
-    }
-  
-    .textContent {
-      margin-bottom: 30px;
-    }
-  
-    .mainHeading {
-      font-size: 36px;
-    }
-  
-    .signUpText {
-      font-size: 20px;
-    }
-  
-    .amountText {
-      font-size: 28px;
-    }
-  
-    .categoryText {
-      font-size: 20px;
-    }
-  
-    .playersImage {
-      max-height: 200px;
-    }
+
+  .textContent {
+    margin-bottom: 30px;
+    
   }
-  
-  @media (max-width: 480px) {
-    .mainHeading {
-      font-size: 32px;
-    }
-  
-    .signUpText {
-      font-size: 18px;
-    }
-  
-    .amountText {
-      font-size: 24px;
-    }
-  
-    .categoryText {
-      font-size: 18px;
-    }
-  
-    .signUpButton {
-      padding: 12px 40px;
-      font-size: 16px;
-    }
-  
-    .playersImage {
-      max-height: 180px;
-    }
+
+  .mainHeading {
+    font-size: 36px;
   }
-  
+
+  .signUpText {
+    font-size: 20px;
+  }
+
+  .amountText {
+    font-size: 28px;
+  }
+
+  .categoryText {
+    font-size: 20px;
+  }
+
+  .playersImage {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: 32px;
+  }
+
+  .signUpText {
+    font-size: 18px;
+  }
+
+  .amountText {
+    font-size: 24px;
+  }
+
+  .categoryText {
+    font-size: 18px;
+  }
+
+  .signUpButton {
+    padding: 12px 40px;
+    font-size: 16px;
+  }
+
+  .playersImage {
+    max-height: 180px;
+  }
+}

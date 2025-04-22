@@ -1,57 +1,88 @@
 "use client"
-import { useEffect } from "react"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import styles from "./Sidebar.module.css"
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
-  const menuItems = [
-    { name: "Casino", icon: "🃏", href: "/casino" },
-    { name: "Sports", icon: "🏀", href: "/sports" },
-    { name: "Spribe", icon: "🎫", href: "/spribe" },
-    { name: "Slots", icon: "🎰", href: "/slots" },
-    { name: "Live", icon: "🚀", href: "/live" },
-    { name: "Promotions", icon: "🎟️", href: "/promotions" },
-    { name: "VIP Club", icon: "👑", href: "/vip-club", highlight: true },
-    { name: "Bonus", icon: "🎁", href: "/bonus" },
-    { name: "Affiliate", icon: "⭕", href: "/affiliate" },
-    { name: "Provably Fair", icon: "⚖️", href: "/provably-fair" },
-  ]
+const Sidebar = ({ isOpen: initialIsOpen }) => {
+  const [isOpen, setIsOpen] = useState(initialIsOpen)
 
-  // Close sidebar when clicking outside on mobile
+  // Sync isOpen with prop changes on client
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      const sidebar = document.getElementById("sidebar")
-      const menuButton = document.getElementById("menu-button")
-
-      if (isOpen && sidebar && !sidebar.contains(event.target) && !menuButton.contains(event.target)) {
-        toggleSidebar()
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [isOpen, toggleSidebar])
+    setIsOpen(initialIsOpen)
+  }, [initialIsOpen])
 
   return (
     <>
-      {/* Overlay for mobile */}
-      {isOpen && <div className={styles.overlay} onClick={toggleSidebar} />}
+      {/* Overlay for mobile - no longer needed for auto-close */}
+      {isOpen && <div className={styles.overlay} />}
 
       <div id="sidebar" className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
         <nav className={styles.nav}>
           <ul className={styles.menuList}>
-            {menuItems.map((item, index) => (
-              <li key={index} className={styles.menuItem}>
-                <Link href={item.href} className={styles.menuLink}>
-                  <span className={styles.icon}>{item.icon}</span>
-                  {isOpen && (
-                    <span className={`${styles.text} ${item.highlight ? styles.highlight : ""}`}>{item.name}</span>
-                  )}
-                </Link>
-              </li>
-            ))}
+            <li className={styles.menuItem}>
+              <Link href="/casino" className={styles.menuLink}>
+                <span className={styles.icon}>🃏</span>
+                {isOpen && <span className={styles.text}>Casino</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/sports" className={styles.menuLink}>
+                <span className={styles.icon}>🏀</span>
+                {isOpen && <span className={styles.text}>Sports</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/spribe" className={styles.menuLink}>
+                <span className={styles.icon}>🎫</span>
+                {isOpen && <span className={styles.text}>Spribe</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/slots" className={styles.menuLink}>
+                <span className={styles.icon}>🎰</span>
+                {isOpen && <span className={styles.text}>Slots</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/live" className={styles.menuLink}>
+                <span className={styles.icon}>🚀</span>
+                {isOpen && <span className={styles.text}>Live</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/promotions" className={styles.menuLink}>
+                <span className={styles.icon}>🎟️</span>
+                {isOpen && <span className={styles.text}>Promotions</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/vip-club" className={styles.menuLink}>
+                <span className={styles.icon}>👑</span>
+                {isOpen && <span className={`${styles.text} ${styles.highlight}`}>VIP Club</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <div className={styles.groupDivider}></div>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/bonus" className={styles.menuLink}>
+                <span className={styles.icon}>🎁</span>
+                {isOpen && <span className={styles.text}>Bonus</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/affiliate" className={styles.menuLink}>
+                <span className={styles.icon}>⭕</span>
+                {isOpen && <span className={styles.text}>Affiliate</span>}
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/provably-fair" className={styles.menuLink}>
+                <span className={styles.icon}>⚖️</span>
+                {isOpen && <span className={styles.text}>Provably Fair</span>}
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

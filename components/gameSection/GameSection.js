@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Play } from "lucide-react"
-
 import styles from "./GameSection.module.css"
 
 // Sample game data - replace with your actual data fetching
@@ -25,6 +24,12 @@ const GAMES = [
   { id: 16, name: "Slots", color: "#ffd600", icon: "🎰" },
   { id: 17, name: "Wheel", color: "#6a1b9a", icon: "🎡" },
   { id: 18, name: "Lottery", color: "#1565c0", icon: "🎟️" },
+  { id: 19, name: "Roulette", color: "#bf360c", icon: "🎲" },
+  { id: 20, name: "Craps", color: "#0d47a1", icon: "🎲" },
+  { id: 21, name: "Sic Bo", color: "#880e4f", icon: "🎲" },
+  { id: 22, name: "Pai Gow", color: "#33691e", icon: "🀄" },
+  { id: 23, name: "Bingo", color: "#4a148c", icon: "🎯" },
+  { id: 24, name: "Scratch", color: "#01579b", icon: "🎟️" },
 ]
 
 const GameCard = ({ game, loading = false }) => {
@@ -49,7 +54,7 @@ const GameCard = ({ game, loading = false }) => {
 
       {/* Hover overlay with play button */}
       <div className={styles.hoverOverlay}>
-        <button size="icon" variant="outline" className={styles.playButton}>
+        <button size="icon" variant="outline" className={styles.playbutton}>
           <Play className={styles.playIcon} />
         </button>
       </div>
@@ -63,8 +68,8 @@ export default function GameSection() {
   const [currentPage, setCurrentPage] = useState(1)
   const scrollContainerRef = useRef(null)
 
-  // Calculate items per row based on container width (responsive)
-  const [itemsPerRow, setItemsPerRow] = useState(8)
+  // Fixed items per row for desktop view
+  const ITEMS_PER_ROW = 8
   const [totalPages, setTotalPages] = useState(1)
 
   // Simulate loading
@@ -76,43 +81,33 @@ export default function GameSection() {
     return () => clearTimeout(timer)
   }, [])
 
-  // Handle window resize to update items per row
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth
-      if (width < 640) setItemsPerRow(2)
-      else if (width < 768) setItemsPerRow(3)
-      else if (width < 1024) setItemsPerRow(4)
-      else if (width < 1280) setItemsPerRow(6)
-      else setItemsPerRow(8)
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
   // Calculate total pages based on expanded state
   useEffect(() => {
     const rowsToShow = expanded ? 3 : 1
-    const itemsPerPage = itemsPerRow * rowsToShow
+    const itemsPerPage = ITEMS_PER_ROW * rowsToShow
     setTotalPages(Math.ceil(GAMES.length / itemsPerPage))
-  }, [expanded, itemsPerRow])
+  }, [expanded])
 
   // Get visible games based on current page and expanded state
   const getVisibleGames = () => {
     const rowsToShow = expanded ? 3 : 1
-    const itemsPerPage = itemsPerRow * rowsToShow
+    const itemsPerPage = ITEMS_PER_ROW * rowsToShow
     const startIndex = (currentPage - 1) * itemsPerPage
     return GAMES.slice(startIndex, startIndex + itemsPerPage)
   }
 
+  // Fixed scroll amount for better scrolling
   const handleScroll = (direction) => {
     if (!scrollContainerRef.current) return
 
     const container = scrollContainerRef.current
-    const scrollAmount = direction === "left" ? -600 : 600
-    container.scrollBy({ left: scrollAmount, behavior: "smooth" })
+    const cardWidth = 196 // card width (180px) + gap (16px)
+    const scrollAmount = direction === "left" ? -cardWidth * 3 : cardWidth * 3
+
+    container.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    })
   }
 
   const handlePrevPage = () => {
@@ -132,19 +127,31 @@ export default function GameSection() {
     setCurrentPage(1) // Reset to first page when toggling
   }
 
+  // Create a grid of games for expanded view
+  const renderGameGrid = () => {
+    if (loading) {
+      // Skeleton loading state
+      return Array.from({ length: ITEMS_PER_ROW }).map((_, index) => (
+        <GameCard key={`skeleton-${index}`} game={GAMES[0]} loading={true} />
+      ))
+    }
+
+    return getVisibleGames().map((game) => <GameCard key={game.id} game={game} />)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h2 className={styles.title}>Spribe</h2>
         <div className={styles.controls}>
-          <button variant="ghost" onClick={toggleExpand} className={styles.toggleButton}>
+          <button variant="ghost" onClick={toggleExpand} className={styles.togglebutton}>
             {expanded ? "Show Less" : "Show More"}
           </button>
           <button
             size="icon"
             variant="ghost"
             onClick={() => handleScroll("left")}
-            className={styles.navButton}
+            className={styles.navbutton}
             disabled={loading}
           >
             <ChevronLeft className={styles.navIcon} />
@@ -153,7 +160,7 @@ export default function GameSection() {
             size="icon"
             variant="ghost"
             onClick={() => handleScroll("right")}
-            className={styles.navButton}
+            className={styles.navbutton}
             disabled={loading}
           >
             <ChevronRight className={styles.navIcon} />
@@ -166,17 +173,11 @@ export default function GameSection() {
         ref={scrollContainerRef}
         className={`${styles.gamesContainer} ${expanded ? styles.expanded : styles.collapsed}`}
       >
-        {loading
-          ? // Skeleton loading state
-            Array.from({ length: itemsPerRow }).map((_, index) => (
-              <GameCard key={`skeleton-${index}`} game={GAMES[0]} loading={true} />
-            ))
-          : // Actual game cards
-            getVisibleGames().map((game) => <GameCard key={game.id} game={game} />)}
+        {renderGameGrid()}
       </div>
 
-      {/* Pagination - only show when expanded */}
-      {expanded && !loading && totalPages > 1 && (
+      {/* Pagination - always show when expanded */}
+      {expanded && (
         <div className={styles.paginationWrapper}>
           <div className={styles.pagination}>
             <button
@@ -184,7 +185,7 @@ export default function GameSection() {
               variant="ghost"
               onClick={handlePrevPage}
               disabled={currentPage === 1}
-              className={styles.paginationButton}
+              className={styles.paginationbutton}
             >
               <ChevronLeft className={styles.paginationIcon} /> Previous
             </button>
@@ -198,7 +199,7 @@ export default function GameSection() {
               variant="ghost"
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
-              className={styles.paginationButton}
+              className={styles.paginationbutton}
             >
               Next <ChevronRight className={styles.paginationIcon} />
             </button>

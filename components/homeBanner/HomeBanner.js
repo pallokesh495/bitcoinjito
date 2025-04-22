@@ -17,8 +17,7 @@ export default function HomeBanner() {
         </div>
         <div className={styles.imageContainer}>
           <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/small-8AoIw8nXEAZ7gXkePSUqpIheL2Yztv.png"
-            alt="Players with trophy"
+            src="/assets/images/small.png"
             className={styles.playersImage}
           />
         </div>
